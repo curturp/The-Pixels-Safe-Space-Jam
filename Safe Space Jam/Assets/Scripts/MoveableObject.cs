@@ -6,12 +6,12 @@ public class MoveableObject : MonoBehaviour
 {
     [SerializeField] private Transform player;
 
-    public AudioManager audioManager;
-
     [Range(0f, 10f)]
     public float radius = 1f;
     [Range(0f, 10f)]
     public float playerRadius = 1f;
+
+    AudioManager audioManager = FindObjectOfType<AudioManager>();
 
     private void Update()
     {
@@ -37,9 +37,9 @@ public class MoveableObject : MonoBehaviour
             audioManager.Play("Interact");
         }
 
-        //Draw order for objects checked agaisnt player location
-        SpriteRenderer objSprite = GetComponent<SpriteRenderer>();       
+        SpriteRenderer objSprite = GetComponent<SpriteRenderer>();
 
+        // If player is above the obj, draw obj on top, if player is below the obj, draw obj on bottom
         if (origin.y >= playerPos.y)
         {
             objSprite.sortingOrder = -1;
