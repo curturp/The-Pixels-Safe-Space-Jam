@@ -5,46 +5,59 @@ using UnityEngine;
 public class MoveableObject : MonoBehaviour
 {
     [SerializeField] private Transform player;
+    private AudioManager audioManager;
 
     [Range(0f, 10f)]
     public float radius = 1f;
     [Range(0f, 10f)]
     public float playerRadius = 1f;
 
-    AudioManager audioManager = FindObjectOfType<AudioManager>();
+    private void Start()
+    {
+        audioManager = FindObjectOfType<AudioManager>();
+    }
 
     private void Update()
     {
-        PlayerInRange();
-    }
-
-    public void PlayerInRange()
-    {
-        // Calculates Distance Between This Object and the Player
         Vector2 playerPos = player.position;
         Vector2 origin = transform.position;
-        float dist = Vector2.Distance(playerPos, origin);
-        // Is the player in range?
-        bool inRange = dist < radius + playerRadius;
-
-        //Universal Interaction Key
         bool interact = Input.GetKeyDown(KeyCode.E);
 
+        bool inRange = PlayerInRange(origin, playerPos);
+        Interact(inRange, interact);
+        ObjectLayer(origin, playerPos);
+    }
+
+    public bool PlayerInRange(Vector2 obj, Vector2 player)
+    {
+        // Calculates Distance Between This Object and the Player
+        float dist = Vector2.Distance(obj, player);
+        // Is the player in range?
+        bool inRange = dist < radius + playerRadius;
+        return inRange;
+    }
+
+    public void Interact(bool inRange, bool interact)
+    {
         // If player is in Range and Interacts -- DO SOMETHING
         if (inRange && interact)
         {
             ChangeColor();
             audioManager.Play("Interact");
-        }
+            audioManager.StopPlay("Menu Music");
+        } 
+    }
 
+    private void ObjectLayer(Vector2 obj, Vector2 player)
+    {
         SpriteRenderer objSprite = GetComponent<SpriteRenderer>();
 
         // If player is above the obj, draw obj on top, if player is below the obj, draw obj on bottom
-        if (origin.y >= playerPos.y)
+        if (obj.y >= player.y)
         {
             objSprite.sortingOrder = -1;
         }
-        else objSprite.sortingOrder = 1;       
+        else objSprite.sortingOrder = 1;
     }
 
     private void ChangeColor()
