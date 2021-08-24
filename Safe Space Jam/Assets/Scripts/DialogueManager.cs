@@ -5,46 +5,62 @@ using UnityEngine.UI;
 
 public class DialogueManager : MonoBehaviour
 {
-    public Text nameText;
-    public Text dialogueText;
 
-    private Queue<string> sentences;
+	public Text nameText;
+	public Text dialogueText;
 
-    // Use this for initialization
-    void Start()
-    {
-        sentences = new Queue<string>();
-    }
+	public Animator animator;
 
-    public void StartDialogue(Dialogue dialogue)
-    {
-     
-        nameText.text = dialogue.name;
+	private Queue<string> sentences;
 
-        sentences.Clear();
+	// Use this for initialization
+	void Start()
+	{
+		sentences = new Queue<string>();
+	}
 
-        foreach (string sentence in dialogue.sentences)
-        {
-            sentences.Enqueue(sentence);
-        }
+	public void StartDialogue(Dialogue dialogue)
+	{
+		animator.SetBool("IsOpen", true);
 
-        DisplayNextSentence();
-    }
+		nameText.text = dialogue.name;
 
-    public void DisplayNextSentence()
-    {
-        if (sentences.Count == 0)
-        {
-            EndDialogue();
-            return;
-        }
+		sentences.Clear();
 
-        string sentence = sentences.Dequeue();
-        dialogueText.text = sentence;
-    }
+		foreach (string sentence in dialogue.sentences)
+		{
+			sentences.Enqueue(sentence);
+		}
 
-    void EndDialogue()
-    {
-        Debug.Log("End of conversation.");
-    }
+		DisplayNextSentence();
+	}
+
+	public void DisplayNextSentence()
+	{
+		if (sentences.Count == 0)
+		{
+			EndDialogue();
+			return;
+		}
+
+		string sentence = sentences.Dequeue();
+		StopAllCoroutines();
+		StartCoroutine(TypeSentence(sentence));
+	}
+
+	IEnumerator TypeSentence(string sentence)
+	{
+		dialogueText.text = "";
+		foreach (char letter in sentence.ToCharArray())
+		{
+			dialogueText.text += letter;
+			yield return null;
+		}
+	}
+
+	void EndDialogue()
+	{
+		animator.SetBool("IsOpen", false);
+	}
+
 }
