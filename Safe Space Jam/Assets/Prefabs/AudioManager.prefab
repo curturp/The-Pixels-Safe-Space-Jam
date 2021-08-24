@@ -62,3 +62,12 @@ MonoBehaviour:
     fadeIn: 0
     fadeOut: 0
     source: {fileID: 0}
+  - name: Credits
+    clip: {fileID: 8300000, guid: c61506f82c5a1ac49b7bdf61701255ee, type: 3}
+    volume: 0.1
+    pitch: 1
+    fadeSpeed: 0.1
+    loop: 0
+    fadeIn: 0
+    fadeOut: 0
+    source: {fileID: 0}
