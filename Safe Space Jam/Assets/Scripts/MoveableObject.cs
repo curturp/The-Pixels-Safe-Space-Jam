@@ -6,15 +6,21 @@ public class MoveableObject : MonoBehaviour
 {
     [SerializeField] private Transform player;
     private AudioManager audioManager;
+    private DialogueTrigger dialogueTrigger;
 
     [Range(0f, 10f)]
     public float radius = 1f;
-    [Range(0f, 10f)]
-    public float playerRadius = 1f;
+    private float playerRadius = 2.5f;
+
+    public bool moveableObject;
+    public bool hasDialogue;
+    public bool canChangeColor;
 
     private void Start()
     {
         audioManager = FindObjectOfType<AudioManager>();
+        dialogueTrigger = GetComponent<DialogueTrigger>();
+        
     }
 
     private void Update()
@@ -22,8 +28,8 @@ public class MoveableObject : MonoBehaviour
         Vector2 playerPos = player.position;
         Vector2 origin = transform.position;
         bool interact = Input.GetKeyDown(KeyCode.E);
-
         bool inRange = PlayerInRange(origin, playerPos);
+
         Interact(inRange, interact);
         ObjectLayer(origin, playerPos);
     }
@@ -42,9 +48,22 @@ public class MoveableObject : MonoBehaviour
         // If player is in Range and Interacts -- DO SOMETHING
         if (inRange && interact)
         {
-            ChangeColor();
-            audioManager.Play("Interact");
-            audioManager.StopPlay("Menu Music");
+            if (canChangeColor)
+            {
+                ChangeColor();
+            }   
+            if (hasDialogue)
+            {                
+                if (dialogueTrigger.dialogueManager.animator.GetBool("IsOpen") == true)
+                {
+                    dialogueTrigger.ContinueDialogue();
+                }
+                else dialogueTrigger.TriggerDialogue();
+            }
+            if (moveableObject)
+            {
+                Debug.Log("Moveable Object");
+            }
         } 
     }
 
@@ -69,7 +88,7 @@ public class MoveableObject : MonoBehaviour
 
 #if UNITY_EDITOR
     //Represents the distance detection system in the Editor
-    private void OnDrawGizmos()
+   /* private void OnDrawGizmos()
     {
         Vector2 playerPos = player.position;
         Vector2 origin = transform.position;
@@ -81,7 +100,9 @@ public class MoveableObject : MonoBehaviour
 
         Gizmos.DrawWireSphere(Vector2.zero + origin, radius);
 
+        Gizmos.color = inRange ? Color.green : Color.red;
+
         Gizmos.DrawWireSphere(Vector2.zero + playerPos, playerRadius);
-    }
+    } */
 #endif
 }

@@ -136,18 +136,42 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 467216116929078371, guid: 48fc3b64a1e648647ab338c377db5149, type: 3}
       propertyPath: sounds.Array.size
-      value: 3
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 467216116929078371, guid: 48fc3b64a1e648647ab338c377db5149, type: 3}
+      propertyPath: sounds.Array.data[0].name
+      value: Main Theme v1
       objectReference: {fileID: 0}
     - target: {fileID: 467216116929078371, guid: 48fc3b64a1e648647ab338c377db5149, type: 3}
       propertyPath: sounds.Array.data[2].clip
       value: 
       objectReference: {fileID: 8300000, guid: 5458f94c150caa1478984febf656bc7f, type: 3}
     - target: {fileID: 467216116929078371, guid: 48fc3b64a1e648647ab338c377db5149, type: 3}
+      propertyPath: sounds.Array.data[2].loop
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 467216116929078371, guid: 48fc3b64a1e648647ab338c377db5149, type: 3}
       propertyPath: sounds.Array.data[2].name
       value: Menu Click
       objectReference: {fileID: 0}
     - target: {fileID: 467216116929078371, guid: 48fc3b64a1e648647ab338c377db5149, type: 3}
+      propertyPath: sounds.Array.data[3].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 8fe31e25b574e4f7295722d3b6f44f01, type: 3}
+    - target: {fileID: 467216116929078371, guid: 48fc3b64a1e648647ab338c377db5149, type: 3}
+      propertyPath: sounds.Array.data[3].loop
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 467216116929078371, guid: 48fc3b64a1e648647ab338c377db5149, type: 3}
+      propertyPath: sounds.Array.data[3].name
+      value: Main Theme v2
+      objectReference: {fileID: 0}
+    - target: {fileID: 467216116929078371, guid: 48fc3b64a1e648647ab338c377db5149, type: 3}
       propertyPath: sounds.Array.data[2].pitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 467216116929078371, guid: 48fc3b64a1e648647ab338c377db5149, type: 3}
+      propertyPath: sounds.Array.data[3].pitch
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 467216116929078371, guid: 48fc3b64a1e648647ab338c377db5149, type: 3}
@@ -155,8 +179,20 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 467216116929078371, guid: 48fc3b64a1e648647ab338c377db5149, type: 3}
+      propertyPath: sounds.Array.data[2].fadeIn
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 467216116929078371, guid: 48fc3b64a1e648647ab338c377db5149, type: 3}
       propertyPath: sounds.Array.data[2].volume
       value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 467216116929078371, guid: 48fc3b64a1e648647ab338c377db5149, type: 3}
+      propertyPath: sounds.Array.data[3].fadeIn
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 467216116929078371, guid: 48fc3b64a1e648647ab338c377db5149, type: 3}
+      propertyPath: sounds.Array.data[3].volume
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 467216116929078371, guid: 48fc3b64a1e648647ab338c377db5149, type: 3}
       propertyPath: sounds.Array.data[0].fadeOut
@@ -167,7 +203,15 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 467216116929078371, guid: 48fc3b64a1e648647ab338c377db5149, type: 3}
+      propertyPath: sounds.Array.data[3].fadeOut
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 467216116929078371, guid: 48fc3b64a1e648647ab338c377db5149, type: 3}
       propertyPath: sounds.Array.data[2].fadeSpeed
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 467216116929078371, guid: 48fc3b64a1e648647ab338c377db5149, type: 3}
+      propertyPath: sounds.Array.data[3].fadeSpeed
       value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 467216116929078372, guid: 48fc3b64a1e648647ab338c377db5149, type: 3}
@@ -683,9 +727,9 @@ MonoBehaviour:
           m_StringArgument: Menu Click
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 11500000, guid: 1f268774f93c64f389be5d9aa66a9da4, type: 3}
+      - m_Target: {fileID: 650891837}
         m_TargetAssemblyTypeName: UnityEngine.Object, UnityEngine
-        m_MethodName: set_name
+        m_MethodName: 
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -733,6 +777,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 598686832}
   m_CullTransparentMesh: 1
+--- !u!1 &650891837 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6238045221819476519, guid: 5b57b2d262927564d80a4b72e5c5dfec, type: 3}
+  m_PrefabInstance: {fileID: 1897288100}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &854127157 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4288148350988603158, guid: 68d7fc013bf814b3da07abbf9fb0e445, type: 3}
@@ -982,7 +1031,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6238045221819477464, guid: 5b57b2d262927564d80a4b72e5c5dfec, type: 3}
   m_PrefabInstance: {fileID: 1897288100}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 650891837}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e85e6b4607e774443a5710fb2bdd7e73, type: 3}
