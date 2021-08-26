@@ -48,6 +48,7 @@ public class DarkBeahavior : MonoBehaviour
         Vector2 originPos = originPoint.position;
         Vector2 endPos = endPoint.position;
 
+        Gizmos.color = Color.blue;
         Gizmos.DrawLine(originPos, endPos);
     }
 #endif

@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class MoveableObject : MonoBehaviour
 {
-    [SerializeField] private Transform player;
+    [SerializeField]private GameObject player;
+    private Transform playerTransform;
     private AudioManager audioManager;
     private DialogueTrigger dialogueTrigger;
+    private PickUp pickUp;
 
     [Range(0f, 10f)]
     public float radius = 1f;
@@ -15,17 +17,20 @@ public class MoveableObject : MonoBehaviour
     public bool moveableObject;
     public bool hasDialogue;
     public bool canChangeColor;
+    public bool canPickUp;
 
     private void Start()
     {
         audioManager = FindObjectOfType<AudioManager>();
         dialogueTrigger = GetComponent<DialogueTrigger>();
-        
+        pickUp = GetComponent<PickUp>();
+        player = GameObject.FindGameObjectWithTag("Player");
+        playerTransform = player.transform;
     }
 
     private void Update()
     {
-        Vector2 playerPos = player.position;
+        Vector2 playerPos = player.transform.position;
         Vector2 origin = transform.position;
         bool interact = Input.GetKeyDown(KeyCode.E);
         bool inRange = PlayerInRange(origin, playerPos);
@@ -64,6 +69,11 @@ public class MoveableObject : MonoBehaviour
             {
                 Debug.Log("Moveable Object");
             }
+            if (canPickUp)
+            {
+                this.pickUp.PickUpItem();
+                Debug.Log("Item Picked up");
+            }
         } 
     }
 
@@ -88,9 +98,9 @@ public class MoveableObject : MonoBehaviour
 
 #if UNITY_EDITOR
     //Represents the distance detection system in the Editor
-   /* private void OnDrawGizmos()
+    private void OnDrawGizmos()
     {
-        Vector2 playerPos = player.position;
+        Vector2 playerPos = playerTransform.position;
         Vector2 origin = transform.position;
 
         float dist = Vector2.Distance(playerPos, origin);
@@ -103,6 +113,6 @@ public class MoveableObject : MonoBehaviour
         Gizmos.color = inRange ? Color.green : Color.red;
 
         Gizmos.DrawWireSphere(Vector2.zero + playerPos, playerRadius);
-    } */
+    }
 #endif
 }

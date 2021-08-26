@@ -5,6 +5,6 @@ using UnityEngine;
 public class ItemPickup : MonoBehaviour
 {
     public bool[] isFull;
-    public GameObject[] InventorySlot;
+    public GameObject[] inventorySlot;
    
 }
