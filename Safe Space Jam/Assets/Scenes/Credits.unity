@@ -800,8 +800,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1737.4055, y: 1024.1337}
-  m_SizeDelta: {x: 708.0281, y: 50}
+  m_AnchoredPosition: {x: 1765, y: 1024.1337}
+  m_SizeDelta: {x: 800.69, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &295873248
 MonoBehaviour:
@@ -823,7 +823,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '"Title"'
+  m_text: '"Aurora"'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2e503a5a362954b268ebdd6fa4d4a3ee, type: 2}
   m_sharedMaterial: {fileID: 5086885082604106918, guid: 2e503a5a362954b268ebdd6fa4d4a3ee, type: 2}
