@@ -22,4 +22,9 @@ public class DialogueTrigger : MonoBehaviour
     {
         dialogueManager.DisplayNextSentence();
     }
+
+    public void EndDialogue()
+    {
+        dialogueManager.EndDialogue();
+    }
 }
