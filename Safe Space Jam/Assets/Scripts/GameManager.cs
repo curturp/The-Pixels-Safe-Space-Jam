@@ -9,8 +9,6 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
     private string sceneName;
 
-    
-
     private void Awake()
     {
         if (instance == null)
@@ -95,5 +93,10 @@ public class GameManager : MonoBehaviour
                 LoadScene("Pause Menu");
             }
         }
+    }
+
+    public void Quitegame()
+    {
+        Application.Quit();
     }
 }
