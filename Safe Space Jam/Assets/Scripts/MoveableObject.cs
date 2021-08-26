@@ -5,6 +5,7 @@ using UnityEngine;
 public class MoveableObject : MonoBehaviour
 {
     [SerializeField]private GameObject player;
+    private PlayerBehavior playerBehavior;
     private AudioManager audioManager;
     private DialogueTrigger dialogueTrigger;
     private PickUp pickUp;
@@ -14,6 +15,7 @@ public class MoveableObject : MonoBehaviour
     private float playerRadius = 2.5f;
 
     public bool moveableObject;
+    bool isHolding = false;
     public bool hasDialogue;
     public bool canChangeColor;
     public bool canPickUp;
@@ -23,6 +25,7 @@ public class MoveableObject : MonoBehaviour
         audioManager = FindObjectOfType<AudioManager>();
         dialogueTrigger = GetComponent<DialogueTrigger>();
         pickUp = GetComponent<PickUp>();
+        playerBehavior = player.GetComponent<PlayerBehavior>();
     }
 
     private void Update()
@@ -42,6 +45,10 @@ public class MoveableObject : MonoBehaviour
         float dist = Vector2.Distance(obj, player);
         // Is the player in range?
         bool inRange = dist < radius + playerRadius;
+
+        if (hasDialogue && !inRange)
+            dialogueTrigger.EndDialogue();
+
         return inRange;
     }
 
@@ -64,14 +71,31 @@ public class MoveableObject : MonoBehaviour
             }
             if (moveableObject)
             {
-                Debug.Log("Moveable Object");
+                isHolding = PushPull(isHolding);
             }
             if (canPickUp)
             {
                 this.pickUp.PickUpItem();
-                Debug.Log("Item Picked up");
             }
         } 
+    }
+
+    private bool PushPull(bool isHolding)
+    {        
+        if (isHolding == false)
+        {
+            isHolding = true;
+            transform.parent = player.transform;
+            playerBehavior.playerSpeed /= 2;
+        }
+        else
+        {
+            isHolding = false;
+            transform.parent = null;
+            playerBehavior.playerSpeed *= 2;
+        }
+        Debug.Log("isHolding is " + isHolding);
+        return isHolding;
     }
 
     private void ObjectLayer(Vector2 obj, Vector2 player)
