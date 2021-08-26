@@ -1,55 +1,43 @@
 fileFormatVersion: 2
-guid: bc01de0f5c30ef6409a46660602f3cae
+guid: ecb8ceb8d1eb3f241a1a8ad7563315a1
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4798051957488401940
-    second: Push 1
+      213: -6137007217024267201
+    second: Player Idle_0
   - first:
-      213: 2583838956208645280
-    second: Push 2
+      213: -8416804778740628856
+    second: Player Idle_1
   - first:
-      213: -8534680960404208894
-    second: Push 3
+      213: -4269071924193232105
+    second: Player Idle_2
   - first:
-      213: -8552340420863890346
-    second: Push 4
+      213: 5078832844186053437
+    second: Player Idle_3
   - first:
-      213: -489153255519494965
-    second: player_chara_push_pull_sheet copy_4
+      213: -7215349037938101137
+    second: Player Idle_4
   - first:
-      213: -9197141122710905863
-    second: player_chara_push_pull_sheet copy_5
+      213: -2327266042211786159
+    second: Player Idle_5
   - first:
-      213: -2206044515903939724
-    second: player_chara_push_pull_sheet copy_6
+      213: 9161525504018237102
+    second: Player Idle_6
   - first:
-      213: 7058449552184392111
-    second: player_chara_push_pull_sheet copy_7
+      213: -7081395702228199228
+    second: Player Idle_7
   - first:
-      213: -8138956897356330102
-    second: Pull 1
+      213: 4255408574757407617
+    second: Player Idle_8
   - first:
-      213: -6495091115550180961
-    second: Pull 2
+      213: -2569632519869136580
+    second: Player Idle_9
   - first:
-      213: 3722898699402746518
-    second: Pull 3
+      213: 3158241403247679141
+    second: Player Idle_10
   - first:
-      213: -5156421403710642095
-    second: Pull 4
-  - first:
-      213: 6582572458714526537
-    second: player_chara_push_pull_sheet copy_12
-  - first:
-      213: -2061792518760357988
-    second: player_chara_push_pull_sheet copy_13
-  - first:
-      213: -8184372996518806859
-    second: player_chara_push_pull_sheet copy_14
-  - first:
-      213: 2175766809329716336
-    second: player_chara_push_pull_sheet copy_15
+      213: 8312666933360773580
+    second: Player Idle_11
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -139,169 +127,253 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Push 1
+      name: Player Idle_0
       rect:
         serializedVersion: 2
-        x: 18
-        y: 194
-        width: 30
-        height: 60
+        x: 287
+        y: 3069
+        width: 452
+        height: 730
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ce149047a25e96db0800000000000000
-      internalID: -4798051957488401940
+      spriteID: f3c824d8378f4daa0800000000000000
+      internalID: -6137007217024267201
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Push 2
+      name: Player Idle_1
       rect:
         serializedVersion: 2
-        x: 82
-        y: 193
-        width: 28
-        height: 62
+        x: 1311
+        y: 3069
+        width: 450
+        height: 730
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0a4e1a547d3abd320800000000000000
-      internalID: 2583838956208645280
+      spriteID: 882ca5bd5a0813b80800000000000000
+      internalID: -8416804778740628856
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Push 3
+      name: Player Idle_2
       rect:
         serializedVersion: 2
-        x: 145
-        y: 193
-        width: 29
-        height: 61
+        x: 2335
+        y: 3069
+        width: 450
+        height: 730
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 20341db92e8be8980800000000000000
-      internalID: -8534680960404208894
+      spriteID: 71b7ed514b531c4c0800000000000000
+      internalID: -4269071924193232105
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Push 4
+      name: Player Idle_3
       rect:
         serializedVersion: 2
-        x: 209
-        y: 193
-        width: 30
-        height: 61
+        x: 3355
+        y: 3069
+        width: 458
+        height: 730
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 65c613013bbff4980800000000000000
-      internalID: -8552340420863890346
+      spriteID: d3beb4f1093ab7640800000000000000
+      internalID: 5078832844186053437
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Pull 1
+      name: Player Idle_4
       rect:
         serializedVersion: 2
-        x: 12
-        y: 66
-        width: 38
-        height: 61
+        x: 283
+        y: 2045
+        width: 458
+        height: 730
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a8b4cdae2dd9c0f80800000000000000
-      internalID: -8138956897356330102
+      spriteID: f643e3f474eeddb90800000000000000
+      internalID: -7215349037938101137
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Pull 2
+      name: Player Idle_5
       rect:
         serializedVersion: 2
-        x: 76
-        y: 65
-        width: 38
-        height: 62
+        x: 1303
+        y: 2045
+        width: 468
+        height: 730
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f99f5d9fa0dccd5a0800000000000000
-      internalID: -6495091115550180961
+      spriteID: 15223207dd3e3bfd0800000000000000
+      internalID: -2327266042211786159
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Pull 3
+      name: Player Idle_6
       rect:
         serializedVersion: 2
-        x: 141
-        y: 65
-        width: 38
-        height: 62
+        x: 2327
+        y: 2045
+        width: 468
+        height: 730
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 69a1aa074a46aa330800000000000000
-      internalID: 3722898699402746518
+      spriteID: ea640b3f7e6442f70800000000000000
+      internalID: 9161525504018237102
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Pull 4
+      name: Player Idle_7
       rect:
         serializedVersion: 2
-        x: 206
-        y: 65
-        width: 38
-        height: 62
+        x: 3355
+        y: 2045
+        width: 458
+        height: 730
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1582b9f9d06b078b0800000000000000
-      internalID: -5156421403710642095
+      spriteID: 4c8d5bea024d9bd90800000000000000
+      internalID: -7081395702228199228
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player Idle_8
+      rect:
+        serializedVersion: 2
+        x: 283
+        y: 1021
+        width: 458
+        height: 730
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 18b01987d8f3e0b30800000000000000
+      internalID: 4255408574757407617
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player Idle_9
+      rect:
+        serializedVersion: 2
+        x: 1311
+        y: 1021
+        width: 450
+        height: 730
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c3188e176d4d65cd0800000000000000
+      internalID: -2569632519869136580
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player Idle_10
+      rect:
+        serializedVersion: 2
+        x: 2341
+        y: 1022
+        width: 438
+        height: 713
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5a6528bb2d354db20800000000000000
+      internalID: 3158241403247679141
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player Idle_11
+      rect:
+        serializedVersion: 2
+        x: 3361
+        y: 1022
+        width: 448
+        height: 723
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc9ca1398868c5370800000000000000
+      internalID: 8312666933360773580
       vertices: []
       indices: 
       edges: []
