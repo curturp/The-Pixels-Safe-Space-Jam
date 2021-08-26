@@ -5,7 +5,6 @@ using UnityEngine;
 public class MoveableObject : MonoBehaviour
 {
     [SerializeField]private GameObject player;
-    private Transform playerTransform;
     private AudioManager audioManager;
     private DialogueTrigger dialogueTrigger;
     private PickUp pickUp;
@@ -24,8 +23,6 @@ public class MoveableObject : MonoBehaviour
         audioManager = FindObjectOfType<AudioManager>();
         dialogueTrigger = GetComponent<DialogueTrigger>();
         pickUp = GetComponent<PickUp>();
-        player = GameObject.FindGameObjectWithTag("Player");
-        playerTransform = player.transform;
     }
 
     private void Update()
@@ -100,7 +97,7 @@ public class MoveableObject : MonoBehaviour
     //Represents the distance detection system in the Editor
     private void OnDrawGizmos()
     {
-        Vector2 playerPos = playerTransform.position;
+        Vector2 playerPos = player.transform.position;
         Vector2 origin = transform.position;
 
         float dist = Vector2.Distance(playerPos, origin);

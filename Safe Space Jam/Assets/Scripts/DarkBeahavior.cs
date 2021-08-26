@@ -8,6 +8,7 @@ public class DarkBeahavior : MonoBehaviour
     public Transform originPoint;
     public Transform endPoint;
     public Collider2D playerCollider;
+    private ParticleSystem particleSystem;
 
     [Range (0.5f, 10f)] public float beamWidth = 1f;
 
@@ -17,6 +18,7 @@ public class DarkBeahavior : MonoBehaviour
     {
         lineRenderer.startWidth = beamWidth;
         lineRenderer.endWidth = beamWidth;
+        particleSystem = endPoint.GetComponentInChildren<ParticleSystem>();
     }
 
     void Update()
@@ -26,16 +28,24 @@ public class DarkBeahavior : MonoBehaviour
 
     private void UpdateDarkBeam()
     {
-        RaycastHit2D hit = Physics2D.Raycast((Vector2)originPoint.position, beamDirection.normalized, beamDirection.magnitude);
-
         lineRenderer.SetPosition(0, originPoint.position);
 
-        lineRenderer.SetPosition(1, hit.point);
+        lineRenderer.SetPosition(1, endPoint.position);
+
+        particleSystem.transform.position = endPoint.position;
 
         endPoint.position = lineRenderer.GetPosition(1);
 
         beamDirection = (Vector2)endPoint.position - (Vector2)originPoint.position;
-        
+
+        RaycastHit2D hit = Physics2D.Raycast((Vector2)originPoint.position, beamDirection.normalized, beamDirection.magnitude);
+
+        if (hit)
+        {
+            lineRenderer.SetPosition(1, hit.point);
+            particleSystem.transform.position = hit.point;
+        }
+
         if (hit.collider == playerCollider)
         {
             Debug.Log("Hit the Player");
