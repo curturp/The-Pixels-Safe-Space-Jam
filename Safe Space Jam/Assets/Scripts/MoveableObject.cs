@@ -39,12 +39,15 @@ public class MoveableObject : MonoBehaviour
         ObjectLayer(origin, playerPos);
     }
 
-    public bool PlayerInRange(Vector2 obj, Vector2 player)
+    public bool PlayerInRange(Vector2 obj, Vector2 playerPos)
     {
         // Calculates Distance Between This Object and the Player
-        float dist = Vector2.Distance(obj, player);
+        float dist = Vector2.Distance(obj, playerPos);
         // Is the player in range?
         bool inRange = dist < radius + playerRadius;
+
+        if (inRange)
+            playerBehavior.usePromptSignal = true;
 
         if (hasDialogue && !inRange)
             dialogueTrigger.EndDialogue();
@@ -130,8 +133,6 @@ public class MoveableObject : MonoBehaviour
         Gizmos.color = inRange ? Color.green : Color.red;
 
         Gizmos.DrawWireSphere(Vector2.zero + origin, radius);
-
-        Gizmos.color = inRange ? Color.green : Color.red;
 
         Gizmos.DrawWireSphere(Vector2.zero + playerPos, playerRadius);
     }

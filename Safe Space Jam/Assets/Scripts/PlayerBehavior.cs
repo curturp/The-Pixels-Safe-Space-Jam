@@ -14,6 +14,9 @@ public class PlayerBehavior : MonoBehaviour
     private bool goingUp;
     private bool goingDown;
 
+    public GameObject usePrompt;
+    public bool usePromptSignal;
+
     private void Start()
     {
         animator = GetComponent<Animator>();
@@ -24,6 +27,9 @@ public class PlayerBehavior : MonoBehaviour
         PlayerInput();
         FlipSprite();
         Animate();
+
+        usePrompt.SetActive(usePromptSignal);
+        usePromptSignal = false;
     }
 
     private void PlayerInput()
