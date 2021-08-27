@@ -3,7 +3,11 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Red
+  - DarkBeam
+  - Lantern
+  - Bush
   layers:
   - Default
   - TransparentFX
@@ -13,10 +17,10 @@ TagManager:
   - UI
   - Top
   - Bottom
-  - 
-  - 
-  - 
-  - 
+  - ObjOnTop
+  - Player
+  - ObjOnBottom
+  - Lanterns
   - 
   - 
   - 
@@ -40,4 +44,10 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: plainWalls
+    uniqueID: 2326424353
+    locked: 0
+  - name: roseWalls
+    uniqueID: 3375608475
     locked: 0

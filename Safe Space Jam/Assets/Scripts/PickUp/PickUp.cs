@@ -20,11 +20,28 @@ public class PickUp : MonoBehaviour
             {
                 //Item CAN BE ADDED TO INVENTORY !
                 inventory.isFull[i] = true;
-                Instantiate(itemButton, inventory.inventorySlot[i].transform, false);
+                itemButton = Instantiate(itemButton, inventory.inventorySlot[i].transform, false);
+                itemButton.SetActive(true);
+                gameObject.GetComponent<SpriteRenderer>().enabled = false;
+                transform.SetParent(GameObject.FindGameObjectWithTag("Player").transform);
+                transform.localPosition = Vector2.zero;
+                break;
+            }
+        }
+    }
+
+    public void DropItem()
+    {
+        for (int i = 0; i < inventory.inventorySlot.Length; i++)
+        {
+            if (inventory.isFull[i] == true)
+            {
+                //Item CAN BE ADDED TO INVENTORY !
+                inventory.isFull[i] = false;
+                itemButton.SetActive(false);
                 Destroy(gameObject);
                 break;
             }
-                
         }
     }
         

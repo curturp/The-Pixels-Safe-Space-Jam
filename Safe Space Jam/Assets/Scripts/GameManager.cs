@@ -41,7 +41,7 @@ public class GameManager : MonoBehaviour
 
     public void LoadScene(string sceneName)
     {
-        SceneManager.LoadScene(sceneName, LoadSceneMode.Single);
+        SceneManager.LoadScene(sceneName, LoadSceneMode.Single);  
     }
 
     public string SceneName()
@@ -55,19 +55,19 @@ public class GameManager : MonoBehaviour
     {
         if (sceneName == "Main Menu")
         {
-            audioManager.Play("Main Theme v2");
-            audioManager.StopPlay("Main Theme v1");
-        }
-        else if (sceneName == "Pause Menu")
-        {
+            audioManager.Play("Menu Music");
+            audioManager.StopPlay("Credits");
         }
         else if (sceneName == "Credits")
         {
-            audioManager.StopPlay("Main Theme v2");
-            audioManager.Play("Main Theme v1");
+            audioManager.StopPlay("Credits");
+            audioManager.Play("Menu Music");
+            audioManager.StopPlay("Level Music");
         }
-        else if (sceneName == "Test Level")
+        else if (sceneName == "Level 1")
         {
+            audioManager.Play("Level Music");
+            audioManager.StopPlay("Menu Music");
         }
     }
 

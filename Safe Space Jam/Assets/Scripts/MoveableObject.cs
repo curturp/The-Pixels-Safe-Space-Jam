@@ -17,7 +17,6 @@ public class MoveableObject : MonoBehaviour
     public bool moveableObject;
     bool isHolding = false;
     public bool hasDialogue;
-    public bool canChangeColor;
     public bool canPickUp;
 
     private void Start()
@@ -35,7 +34,7 @@ public class MoveableObject : MonoBehaviour
         bool interact = Input.GetKeyDown(KeyCode.E);
         bool inRange = PlayerInRange(origin, playerPos);
 
-        Interact(inRange, interact);
+        this.Interact(inRange, interact);
         ObjectLayer(origin, playerPos);
     }
 
@@ -46,11 +45,8 @@ public class MoveableObject : MonoBehaviour
         // Is the player in range?
         bool inRange = dist < radius + playerRadius;
 
-        if (inRange)
+        if (inRange && (moveableObject || hasDialogue || canPickUp))
             playerBehavior.usePromptSignal = true;
-
-        if (hasDialogue && !inRange)
-            dialogueTrigger.EndDialogue();
 
         return inRange;
     }
@@ -59,28 +55,45 @@ public class MoveableObject : MonoBehaviour
     {
         // If player is in Range and Interacts -- DO SOMETHING
         if (inRange && interact)
-        {
-            if (canChangeColor)
-            {
-                ChangeColor();
-            }   
+        {  
             if (hasDialogue)
-            {                
-                if (dialogueTrigger.dialogueManager.animator.GetBool("IsOpen") == true)
+            {
+                if (this.tag == "Red" && playerBehavior.hasLight == true)
+                {
+                    NPCDialogue redDialogue = GetComponent<NPCDialogue>();
+
+                    if (redDialogue.dialogueTriggers[2].dialogueManager.animator.GetBool("IsOpen") == true)
+                    {
+                        redDialogue.RecieveLight();
+                    }
+                    else
+                    {
+                        player.GetComponentInChildren<PickUp>().DropItem();
+                        redDialogue.RecieveLight();
+                    }                    
+                }
+                else if (this.tag == "Red" && playerBehavior.hasLight == false)
+                {
+                    NPCDialogue redDialogue = GetComponent<NPCDialogue>();
+                    redDialogue.RedDialouge();
+                }
+                else if (this.dialogueTrigger.dialogueManager.animator.GetBool("IsOpen") == true)
                 {
                     dialogueTrigger.ContinueDialogue();
                 }
                 else dialogueTrigger.TriggerDialogue();
             }
-            if (moveableObject)
+            else if (moveableObject)
             {
                 isHolding = PushPull(isHolding);
             }
-            if (canPickUp)
+            else if (canPickUp)
             {
                 this.pickUp.PickUpItem();
+                this.canPickUp = false;
+                playerBehavior.hasLight = true;
             }
-        } 
+        }
     }
 
     private bool PushPull(bool isHolding)
@@ -101,24 +114,26 @@ public class MoveableObject : MonoBehaviour
         return isHolding;
     }
 
-    private void ObjectLayer(Vector2 obj, Vector2 player)
+    private void ObjectLayer(Vector2 obj, Vector2 playerPos)
     {
-        SpriteRenderer objSprite = GetComponent<SpriteRenderer>();
+        
+        SpriteRenderer playerSprite = player.GetComponent<SpriteRenderer>();
+        float distance = Vector2.Distance(obj, playerPos);
 
         // If player is above the obj, draw obj on top, if player is below the obj, draw obj on bottom
-        if (obj.y >= player.y)
+        if (distance <= 5)
         {
-            objSprite.sortingOrder = -1;
-        }
-        else objSprite.sortingOrder = 1;
-    }
+            if (obj.y >= playerPos.y)
+            {
 
-    private void ChangeColor()
-    {
-        SpriteRenderer objSprite = GetComponent<SpriteRenderer>();
-        objSprite.color = Random.ColorHSV(0f, 1f, 1f, 1f, 0.5f, 1f);
+                playerSprite.sortingOrder = 3;
+            }
+            else
+            {
+                playerSprite.sortingOrder = 1;
+            }
+        }        
     }
-
 
 #if UNITY_EDITOR
     //Represents the distance detection system in the Editor

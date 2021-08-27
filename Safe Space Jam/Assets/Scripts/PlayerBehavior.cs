@@ -13,6 +13,7 @@ public class PlayerBehavior : MonoBehaviour
     private bool goingRight;
     private bool goingUp;
     private bool goingDown;
+    public bool hasLight;
 
     public GameObject usePrompt;
     public bool usePromptSignal;

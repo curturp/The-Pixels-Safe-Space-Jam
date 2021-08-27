@@ -8,7 +8,10 @@ public class DarkBeahavior : MonoBehaviour
     public Transform originPoint;
     public Transform endPoint;
     public Collider2D playerCollider;
-    private ParticleSystem particleSystem;
+    public Transform playerTranform;
+    [SerializeField] List<Transform> nodes;
+    LineRenderer lr;
+    LineCollision lc;
 
     [Range (0.5f, 10f)] public float beamWidth = 1f;
 
@@ -16,9 +19,11 @@ public class DarkBeahavior : MonoBehaviour
 
     private void Start()
     {
+        lr = lineRenderer;
+        lr.positionCount = nodes.Count;
         lineRenderer.startWidth = beamWidth;
         lineRenderer.endWidth = beamWidth;
-        particleSystem = endPoint.GetComponentInChildren<ParticleSystem>();
+        lc = GetComponent<LineCollision>();
     }
 
     void Update()
@@ -28,38 +33,29 @@ public class DarkBeahavior : MonoBehaviour
 
     private void UpdateDarkBeam()
     {
+        RaycastHit2D hit = Physics2D.Raycast((Vector2)originPoint.position, beamDirection.normalized, beamDirection.magnitude);
+
         lineRenderer.SetPosition(0, originPoint.position);
 
         lineRenderer.SetPosition(1, endPoint.position);
 
-        particleSystem.transform.position = endPoint.position;
-
-        endPoint.position = lineRenderer.GetPosition(1);
-
         beamDirection = (Vector2)endPoint.position - (Vector2)originPoint.position;
-
-        RaycastHit2D hit = Physics2D.Raycast((Vector2)originPoint.position, beamDirection.normalized, beamDirection.magnitude);
 
         if (hit)
         {
-            lineRenderer.SetPosition(1, hit.point);
-            particleSystem.transform.position = hit.point;
-        }
-
-        if (hit.collider == playerCollider)
-        {
-            Debug.Log("Hit the Player");
+            lineRenderer.SetPosition(1, hit.point);            
         }
     }
 
-#if UNITY_EDITOR
-    private void OnDrawGizmos()
+    public Vector3[] GetPositions()
     {
-        Vector2 originPos = originPoint.position;
-        Vector2 endPos = endPoint.position;
-
-        Gizmos.color = Color.blue;
-        Gizmos.DrawLine(originPos, endPos);
+        Vector3[] positions = new Vector3[lr.positionCount];
+        lr.GetPositions(positions);
+        return positions;
     }
-#endif
+
+    public float GetWidth()
+    {
+        return lr.startWidth;
+    }
 }

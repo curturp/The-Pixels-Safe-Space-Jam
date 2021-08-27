@@ -45,7 +45,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sounds:
   - name: Menu Music
-    clip: {fileID: 8300000, guid: 540b43400bb50064ab72f4506bbdccfd, type: 3}
+    clip: {fileID: 8300000, guid: b89362e100940499380e1b74da19500a, type: 3}
     volume: 0.5
     pitch: 1
     fadeSpeed: 0.1
@@ -64,6 +64,15 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: Credits
     clip: {fileID: 8300000, guid: 8fe31e25b574e4f7295722d3b6f44f01, type: 3}
+    volume: 0.5
+    pitch: 1
+    fadeSpeed: 0.1
+    loop: 1
+    fadeIn: 1
+    fadeOut: 1
+    source: {fileID: 0}
+  - name: Level Music
+    clip: {fileID: 8300000, guid: 59b044f9673964988936636eae548a90, type: 3}
     volume: 0.5
     pitch: 1
     fadeSpeed: 0.1
