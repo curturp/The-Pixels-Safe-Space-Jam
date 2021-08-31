@@ -17504,6 +17504,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 26951068}
     m_Modifications:
+    - target: {fileID: 8108247840846214310, guid: fa32b5c92421cac41a5c03d7f0bcced5, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8108247840846214310, guid: fa32b5c92421cac41a5c03d7f0bcced5, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8108247840846214310, guid: fa32b5c92421cac41a5c03d7f0bcced5, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8108247840846214310, guid: fa32b5c92421cac41a5c03d7f0bcced5, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 50
+      objectReference: {fileID: 0}
     - target: {fileID: 8108247841032953518, guid: fa32b5c92421cac41a5c03d7f0bcced5, type: 3}
       propertyPath: m_Name
       value: Inventory
