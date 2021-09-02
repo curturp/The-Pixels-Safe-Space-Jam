@@ -5,7 +5,6 @@ using UnityEngine;
 public class Sounds
 {
     // Made using the help of Brackeys Tutorials - https://www.youtube.com/user/Brackeys
-
     public string name;
 
     public AudioClip clip;

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UIElements;
 
 public class GameManager : MonoBehaviour
 {
@@ -57,11 +58,12 @@ public class GameManager : MonoBehaviour
         {
             audioManager.Play("Menu Music");
             audioManager.StopPlay("Credits");
+            audioManager.StopPlay("Level Music");            
         }
         else if (sceneName == "Credits")
         {
-            audioManager.StopPlay("Credits");
-            audioManager.Play("Menu Music");
+            audioManager.Play("Credits");
+            audioManager.StopPlay("Menu Music");            
             audioManager.StopPlay("Level Music");
         }
         else if (sceneName == "Level 1")
@@ -86,11 +88,11 @@ public class GameManager : MonoBehaviour
                 LoadScene("Main Menu");
             }
         }
-        else if (sceneName == "Test Level")
+        else if (sceneName == "Level 1")
         {
             if (Input.GetKeyDown(KeyCode.Escape))
             {
-                LoadScene("Pause Menu");
+                LoadScene("Main Menu");
             }
         }
     }

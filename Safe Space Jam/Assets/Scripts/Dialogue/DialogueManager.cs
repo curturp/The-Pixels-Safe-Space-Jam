@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class DialogueManager : MonoBehaviour
 {
-
 	public Text nameText;
 	public Text dialogueText;
 
@@ -31,7 +30,6 @@ public class DialogueManager : MonoBehaviour
 		{
 			sentences.Enqueue(sentence);
 		}
-
 		DisplayNextSentence();
 	}
 
@@ -62,5 +60,4 @@ public class DialogueManager : MonoBehaviour
 	{
 		animator.SetBool("IsOpen", false);
 	}
-
 }

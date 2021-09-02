@@ -45,7 +45,6 @@ public class LineCollision : MonoBehaviour
             positions[1] + offsets[1],
             positions[0] + offsets[1],
         };
-
         return colliderPositions;
     }
 }

@@ -6,5 +6,4 @@ public class ItemPickup : MonoBehaviour
 {
     public bool[] isFull;
     public GameObject[] inventorySlot;
-   
 }
